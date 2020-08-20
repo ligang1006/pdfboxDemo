@@ -13,6 +13,7 @@ import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @description:
@@ -28,7 +29,10 @@ public class DrawText {
         for (int i = 0; i < 10; i++) {
             PDPage page = document.getPage(i);
             PDPageContentStream content = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
-            PDType0Font font = PDType0Font.load(document, new File("/Users/ligang/IdeaProjects/pdfboxDemo/src/main/resources/ygyjfcs.ttf"));
+            InputStream resourceAsStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("ygyjfcs.ttf");
+
+            PDType0Font font = PDType0Font.load(document, resourceAsStream);
+//            PDType0Font font = PDType0Font.load(document, new File("/Users/ligang/IdeaProjects/pdfboxDemo/src/main/resources/ygyjfcs.ttf"));
 //            PDFont font = PDType1Font.ZAPF_DINGBATS;
             font.encode("utf8");
             int cursorX = 70;
@@ -43,14 +47,15 @@ public class DrawText {
             content.beginText();
             content.setFont(font, 20);
             content.newLineAtOffset(cursorX + 10, cursorY + 100);
-            content.showText("撒打算的");
+            content.showText("wo打算的");
             content.endText();
             content.close();
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        document.save(byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
-        byteArrayOutputStream.close();
+        document.save(new File("/Users/ligang/Desktop/1.pdf"));
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        document.save(byteArrayOutputStream);
+//        byte[] bytes = byteArrayOutputStream.toByteArray();
+//        byteArrayOutputStream.close();
         document.close();
     }
 }
