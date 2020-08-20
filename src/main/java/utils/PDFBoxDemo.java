@@ -190,7 +190,7 @@ public class PDFBoxDemo
             contentStream.close();
 
             // Saving the document
-            document.save(new File("..\\new_VAT_INVOICE.pdf"));
+            document.save(new File("/Users/ligang/Desktop/new_VAT_INVOICE.pdf"));
 
             // Closing the document
             document.close();
