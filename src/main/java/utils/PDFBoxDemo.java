@@ -161,7 +161,7 @@ public class PDFBoxDemo
             for(PDPage everyPage:document.getPages()){
                 PDPageContentStream cs = new PDPageContentStream(document, everyPage, PDPageContentStream.AppendMode.APPEND,
                         true, true);
-                String ts = "测试";
+                String ts = "水印测试";
                 float fontSize = 80.0f;
                 PDExtendedGraphicsState r0 = new PDExtendedGraphicsState();
                 // 透明度
@@ -173,7 +173,7 @@ public class PDFBoxDemo
                 cs.beginText();
                 cs.setFont(font, fontSize);
                 // 获取旋转实例
-                cs.setTextMatrix(Matrix.getRotateInstance(45,320f,150f));
+                cs.setTextMatrix(Matrix.getRotateInstance(45,320f,100f));
                 cs.showText(ts);
                 cs.endText();
 
@@ -199,5 +199,7 @@ public class PDFBoxDemo
             e.printStackTrace();
         }
     }
+
+
 
 }
