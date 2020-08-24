@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.File;
 
 /**
- * @description:
+ * @description: 绘制矩形
  * @author: lee
  * @create: 2020-08-20 14:53
  **/
@@ -48,8 +48,7 @@ public class ShowRetra {
         document.save(file1);
 
         //Closing the document
-        document.close();//原文出自【易百教程】，商业转载请联系作者获得授权，非商业请保留原文链接：https://www.yiibai.com/pdfbox/pdfbox_adding_rectangles.html
-
+        document.close();
 
     }
 

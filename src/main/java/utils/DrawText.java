@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @description:
+ * @description:添加文档，设置自定义字体
  * @author: lee
  * @create: 2020-08-20 17:35
  **/
@@ -24,6 +24,7 @@ public class DrawText {
     public static void main(String[] args) throws IOException {
         final String PATH = "/Users/ligang/Desktop/f0krpqfu.pdf";
         File file = new File(PATH);
+
         PDDocument document = PDDocument.load(file);
         //Retrieving a page of the PDF Document
         for (int i = 0; i < 10; i++) {
@@ -45,13 +46,14 @@ public class DrawText {
             //draw text
             content.setNonStrokingColor(Color.BLACK);
             content.beginText();
-            content.setFont(font, 20);
+            content.setFont(font, 60);
             content.newLineAtOffset(cursorX + 10, cursorY + 100);
             content.showText("wo打算的");
             content.endText();
             content.close();
         }
         document.save(new File("/Users/ligang/Desktop/1.pdf"));
+        /**以流的方式输出*/
 //        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 //        document.save(byteArrayOutputStream);
 //        byte[] bytes = byteArrayOutputStream.toByteArray();
