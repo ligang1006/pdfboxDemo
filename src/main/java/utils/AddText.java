@@ -22,6 +22,8 @@ public class AddText {
         File file = new File(PATH);
         PDDocument document = PDDocument.load(file);
 
+
+
         //Retrieving the pages of the document
         PDPage page = document.getPage(0);
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
