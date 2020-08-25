@@ -9,14 +9,14 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @description:
+ * @description:添加多行数据
  * @author: lee
  * @create: 2020-08-20 17:29
  **/
 public class AddText {
 
     public static void main(String[] args) throws IOException {
-        final String PATH = "/Users/ligang/Desktop/1.pdf";
+        final String PATH = "/Users/ligang/Desktop/xx2.pdf";
         final String PATH2 = "/Users/ligang/Desktop/2.pdf";
         //Loading an existing document
         File file = new File(PATH);
@@ -26,7 +26,7 @@ public class AddText {
 
         //Retrieving the pages of the document
         PDPage page = document.getPage(0);
-        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+        PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true);
 
         //Begin the Content stream
         contentStream.beginText();
@@ -38,10 +38,14 @@ public class AddText {
         contentStream.newLineAtOffset(25, 100);
 
         String text = "This is the sample document and we are adding content to it. - By yiibai.com";
+        String text1 = "Thiddddds is the sample document and we are adding content to it. - By yiibai.com";
 
         //Adding text in the form of string
         contentStream.showText(text);
-
+        contentStream.newLine();
+        contentStream.newLine();
+        contentStream.newLine();
+        contentStream.showText(text1);
         //Ending the content stream
         contentStream.endText();
 

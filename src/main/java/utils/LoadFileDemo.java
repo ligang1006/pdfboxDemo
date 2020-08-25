@@ -34,7 +34,7 @@ public class LoadFileDemo {
             //第一页
             PDPage page = document.getPage(0);
 
-            pdPageContentStream = new PDPageContentStream(document, page,);
+            pdPageContentStream = new PDPageContentStream(document, page, false, true);
             pdPageContentStream.beginText();
             //设置字体
             pdPageContentStream.setFont(PDType1Font.HELVETICA_BOLD, 14);

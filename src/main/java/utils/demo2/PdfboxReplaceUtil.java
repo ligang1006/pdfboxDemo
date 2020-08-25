@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author lee
  * @date : 2020年08月22日
  */
-@Slf4j
+
 public class PdfboxReplaceUtil {
 
     /**
